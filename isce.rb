@@ -3,9 +3,15 @@ class Isce < Formula
   homepage "https://winsar.unavco.org/software/isce"
   url "https://github.com/isce-framework/isce2/archive/v2.3.1.tar.gz"
   sha256 "b46b9c5b590bdddb1cb4ae8e2777b6c4b6e52bfc8084595aee7e1774b6ffa69d"
+  head "https://github.com/isce-framework/isce2.git"
 
+  bottle do
+    root_url "https://github.com/juribeparada/homebrew-isce/releases/download/bottles-isce"
+    sha256 "858df62fee3281b8d9325d81e6a4b5232be4550b9bf483a84e3a90fdb5405f5b" => :mojave
+  end
+
+  depends_on "scons" => :build
   depends_on "python3"
-  depends_on "scons"
   depends_on "gcc@8"
   depends_on "cython"
   depends_on "fftw"
