@@ -2,7 +2,7 @@ class Isce < Formula
   desc "Interferometric synthetic aperture radar Scientific Computing Environment (ISCE)"
   homepage "https://winsar.unavco.org/software/isce"
   url "https://github.com/isce-framework/isce2/archive/v2.3.1.tar.gz"
-  sha256 "b46b9c5b590bdddb1cb4ae8e2777b6c4b6e52bfc8084595aee7e1774b6ffa69d"
+  sha256 "0ff07d8d86bab899b0855baabdb949eb7b0d5df8eef70a0a4c530c75ca033ad0"
   head "https://github.com/isce-framework/isce2.git"
 
   bottle do
