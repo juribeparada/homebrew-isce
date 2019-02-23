@@ -35,6 +35,7 @@ class Isce < Formula
   def install
     ENV["SCONS_CONFIG_DIR"] = buildpath
 
+    gcc_lib = HOMEBREW_PREFIX/"opt/gcc/lib/gcc/8/"
     py_version = Language::Python.major_minor_version "python3"
     py_include = HOMEBREW_PREFIX/"Frameworks/Python.framework/Versions/#{py_version}/include/python#{py_version}m/"
     x11_inc = OS::Mac::XQuartz.include
@@ -53,7 +54,7 @@ class Isce < Formula
       PRJ_SCONS_INSTALL = #{prefix}
 
       CPPPATH = /usr/local/include/ #{x11_inc} #{py_include}
-      LIBPATH = /usr/lib /usr/local/lib/ #{x11_lib}
+      LIBPATH = #{gcc_lib} /usr/local/lib/ #{x11_lib}
       FORTRANPATH = /usr/local/include/
 
       FORTRAN = /usr/local/bin/gfortran-8
