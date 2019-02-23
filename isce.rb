@@ -49,6 +49,7 @@ class Isce < Formula
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"tools/lib/python#{py_version}/site-packages"
     ENV.prepend_create_path "PATH", buildpath/"tools/bin"
+    ln_sf buildpath/"tools/bin/cython", buildpath/"tools/bin/cython3"
 
     # Generate scons configuration file
     config = <<~EOS
