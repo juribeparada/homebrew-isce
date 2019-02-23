@@ -87,4 +87,10 @@ class Isce < Formula
     # Make isce symlink in site_packages
     homebrew_site_packages.install_symlink opt_prefix
   end
+
+  test do
+    system "python3", "-c", <<~EOS
+      import isce
+    EOS
+  end
 end
