@@ -12,8 +12,9 @@ class Isce < Formula
 
   depends_on "scons" => :build
   depends_on "python3"
+  depends_on "numpy"
+  depends_on "scipy"
   depends_on "gcc@8"
-  depends_on "cython"
   depends_on "fftw"
   depends_on "gdal"
   depends_on "hdf5"
@@ -26,6 +27,11 @@ class Isce < Formula
   depends_on "opencv"
   depends_on :x11
 
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/e0/31/4a166556f92c469d8291d4b03a187f325c773c330fffc1e798bf83d947f2/Cython-0.29.5.tar.gz"
+    sha256 "9d5290d749099a8e446422adfb0aa2142c711284800fb1eb70f595101e32cbf1"
+  end
+
   def install
     ENV["SCONS_CONFIG_DIR"] = buildpath
 
@@ -34,13 +40,12 @@ class Isce < Formula
     x11_inc = OS::Mac::XQuartz.include
     x11_lib = OS::Mac::XQuartz.lib
 
-    system "pip3", "install", "numpy"
-    system "pip3", "install", "cython"
-    system "pip3", "install", "scipy"
-    system "pip3", "install", "opencv-python"
-    system "pip3", "install", "h5py"
-    system "pip3", "install", "requests"
-    system "pip3", "install", "matplotlib"
+    resource("Cython").stage do
+      system "python3", *Language::Python.setup_install_args(buildpath/"tools")
+    end
+
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"tools/lib/python#{py_version}/site-packages"
+    ENV.prepend_create_path "PATH", buildpath/"tools/bin"
 
     # Generate scons configuration file
     config = <<~EOS
