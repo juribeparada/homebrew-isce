@@ -7,7 +7,7 @@ class Isce < Formula
 
   bottle do
     root_url "https://github.com/juribeparada/homebrew-isce/releases/download/bottles-isce"
-    sha256 "858df62fee3281b8d9325d81e6a4b5232be4550b9bf483a84e3a90fdb5405f5b" => :mojave
+    sha256 "848195ffbe07c5e6433471376627b9090fdec27fbf192db36a4d37f47ceefed3" => :mojave
     sha256 "b417411590532e702865b56d0c70a58b18d544aba391406ec76f336fcca73ff1" => :high_sierra
   end
 
