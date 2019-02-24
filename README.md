@@ -20,7 +20,7 @@ If you don't have Homebrew installed in your macOS system, please follow the ins
 
 ### Install XQuartz
 
-If you don't have XQuartz installed, please execute the following command and follow the steps:
+If you don't have XQuartz installed, please execute this command and follow the steps:
 
     brew cask install xquartz
 
@@ -44,15 +44,17 @@ Run the following command to install ISCE. Please be patient to wait the install
 
 ### Post installation
 
-Install additional python3 packages after ISCE installation, for example:
+Install additional python3 packages after ISCE setup, for example:
 
     pip3 install h5py
     pip3 install requests
     pip3 install matplotlib
 
+Now your ISCE installation is ready to use.
+
 ## Additional installation options
 
-- brew install --build-from-source isce: compile and install ISCE released source code
+- brew install --build-from-source isce: compile and install ISCE source code (released version)
 - brew install --HEAD isce: compile and install latest GitHub ISCE source code
 - brew reinstall isce: reinstall ISCE software, for example to fix a damaged installation
 - brew remove isce: uninstall ISCE package
