@@ -2,6 +2,8 @@
 
 This Homebrew formula provides binary (bottle) installation of the [Interferometric synthetic aperture radar Scientific Computing Environment (ISCE)](https://winsar.unavco.org/software/isce). It also provides the installation of local compiled source code, which is available on [GitHub](https://github.com/isce-framework/isce2). For binary installation, High Sierra and Mojave are supported.
 
+DO NOT mix with other package managers (MacPorts, Fink, Conda). If you have a Miniconda or Anaconda installation, make sure they are isolated and not using the PATH environment variable.
+
 ## ISCE installation using Homebrew
 
 Follow these steps for ISCE installation. If you have problems about the ISCE setup using this formula, please report an issue.
@@ -22,7 +24,7 @@ If you don't have XQuartz installed, please execute the following command and fo
 
 ### If you will build ISCE under Mojave from source code
 
-This step is optional, but recommended. If you planning to build the ISCE package from the source code, you need to install the SDK headers if you are using macOS Mojave:
+This step is optional, but recommended. If you are planning to build the ISCE package from the source code, you need to install the macOS SDK headers if you are using Mojave:
 
     sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 
