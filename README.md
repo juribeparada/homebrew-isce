@@ -57,7 +57,7 @@ Install additional python3 packages after ISCE installation, for example:
 
 - ISCE is not installed: probably dependences installation stops early. Re-run "brew install isce" to continue dependences installation.
 - ISCE installation starts to build from the sources, with a "SHA256 mismatch" error: probably the binary bottles were updated recently. Please stops the building with Ctrl-C, and then execute "brew fetch --force isce". Then try to install ISCE again with "brew install isce".
-- Runtime errors executing ISCE: try to reinstall critical packages for ISCE, for example "brew reinstall numpy scipy gcc", etc. Also, check the Homebrew environment health with "brew doctor" and check for unliked formulas. Report an issue if you still have problems.
+- Runtime errors executing ISCE: try to reinstall critical packages for ISCE, for example "brew reinstall numpy scipy gcc", etc. Also, check the Homebrew environment health with "brew doctor" and check for unlinked formulas. Report an issue if you still have problems.
 - When building from sources, scons hangs for long time: probably scons failed. Please be sure your Homebrew environment health is OK and you have the SDK headers installed (Mojave). If you are building from sources, it is a good idea to see the Homebrew log.
 
 ## Debug for issues
@@ -68,4 +68,4 @@ The best way to debug for issues during ISCE source code compilation, it is look
 - 01.python3: cython installation log
 - 02.scons: complete scons output log during ISCE compilation, useful to find compilation issues. For example, during an ISCE compilation ("brew install --build-from-source isce"), it is a good idea to see the scons log in a separated Terminal window with:
 
-    tail -f ~/Library/Logs/Homebrew/isce/02.scons
+        tail -f ~/Library/Logs/Homebrew/isce/02.scons
