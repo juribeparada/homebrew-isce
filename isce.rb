@@ -135,5 +135,6 @@ class Isce < Formula
       from contrib.splitSpectrum import SplitRangeSpectrum as splitSpectrum
       ss = splitSpectrum()
     EOS
+    system "python3", "-c", "import isce, isceobj.Sensor.COSMO_SkyMed_SLC"
   end
 end
