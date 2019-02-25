@@ -81,12 +81,16 @@ class Isce < Formula
 
     # Make ISCE applications symlinks
     bin.install_symlink Dir[prefix/"applications/*"]
+    # Copy contrib/stack files into share folder
+    share.install Dir[buildpath/"contrib/stack/*"]
   end
 
   def post_install
     homebrew_site_packages = Language::Python.homebrew_site_packages "python3"
-    # Make isce symlink in site_packages
+    # Make isce symlink in python3 site_packages
     homebrew_site_packages.install_symlink opt_prefix
+    # Make /usr/local/share/isce symlink
+    ln_sf share, HOMEBREW_PREFIX/"share/isce"
   end
 
   test do
