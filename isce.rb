@@ -83,6 +83,9 @@ class Isce < Formula
     bin.install_symlink Dir[prefix/"applications/*"]
     # Copy contrib/stack files into share folder
     share.install Dir[buildpath/"contrib/stack/*"]
+    # Copy prepStackToStaMPS files into share folder
+    (share/"prepStackToStaMPS").install Dir[buildpath/"contrib/timeseries/prepStackToStaMPS/bin/*"]
+    (share/"prepStackToStaMPS").install buildpath/"contrib/timeseries/prepStackToStaMPS/README"
   end
 
   def post_install
@@ -91,6 +94,18 @@ class Isce < Formula
     homebrew_site_packages.install_symlink opt_prefix
     # Make /usr/local/share/isce symlink
     ln_sf share, HOMEBREW_PREFIX/"share/isce"
+  end
+
+  def caveats; <<~EOS
+    You may want to add the following to your .bash_profile to activate one of the two stack processors:
+    1) Sentinel-1 TOPS:
+      export PATH=$PATH:#{HOMEBREW_PREFIX}/share/isce/topsStack
+    2) Stripmap data:
+      export PATH=$PATH:#{HOMEBREW_PREFIX}/share/isce/stripmapStack
+
+    If you are planning to use StaMPS, you also may add to your .bash_profile:
+      export PATH=$PATH:#{HOMEBREW_PREFIX}/share/isce/prepStackToStaMPS
+  EOS
   end
 
   test do
