@@ -109,8 +109,31 @@ class Isce < Formula
   end
 
   test do
+    system "python3", "-c", "import isce"
+    %w[
+      contrib.Snaphu.Snaphu
+      isceobj.Filter
+      isceobj.StripmapProc.StripmapProc
+      isceobj.TopsProc.TopsProc
+      isceobj.Orbit.Orbit
+      isceobj.Planet.Planet
+      isceobj.Util.Poly2D
+      iscesys.ImageUtil.ImageUtil
+      mroipac.ampcor.DenseAmpcor
+      mroipac.correlation.correlation
+      mroipac.grass.grass
+      mroipac.icu.Icu
+      mroipac.filter.Filter
+      stdproc.rectify.geocode.Geocodable
+      stdproc.stdproc.crossmul
+      zerodop.geo2rdr
+      zerodop.geozero
+      zerodop.topozero
+    ].each { |item| system "python3", "-c", "import isce, #{item}" }
     system "python3", "-c", <<~EOS
       import isce
+      from contrib.splitSpectrum import SplitRangeSpectrum as splitSpectrum
+      ss = splitSpectrum()
     EOS
   end
 end
