@@ -44,6 +44,10 @@ Run the following command to install ISCE. Please be patient to wait the install
 
 ### Post installation
 
+Please add to your ~/.bash_profile (see "caveats" message with: brew info isce):
+
+    export ISCE_HOME=/usr/local/opt/isce
+
 Install additional python3 packages after ISCE setup, for example:
 
     pip3 install h5py
@@ -52,12 +56,29 @@ Install additional python3 packages after ISCE setup, for example:
 
 Now your ISCE installation is ready to use.
 
+### Stack processors
+
+If you want to use the stack processors included in ISCE, you need to add to your .bash_profile the following lines, depending on what kind of stack processor you need:
+
+- Sentinel-1 TOPS:
+
+        export PATH=$PATH:/usr/local/share/isce/topsStack
+
+- Stripmap data:
+
+        export PATH=$PATH:/usr/local/share/isce/stripmapStack
+
+If you are planning to use StaMPS, you also may add to your .bash_profile:
+
+    export PATH=$PATH:/usr/local/share/isce/prepStackToStaMPS
+
 ## Additional installation options
 
-- brew install --build-from-source isce: compile and install ISCE source code (released version)
-- brew install --HEAD isce: compile and install latest GitHub ISCE source code
-- brew reinstall isce: reinstall ISCE software, for example to fix a damaged installation
-- brew remove isce: uninstall ISCE package
+- brew test isce: perform several ISCE modules tests.
+- brew install --build-from-source isce: compile and install ISCE source code (released version).
+- brew install --HEAD isce: compile and install latest GitHub ISCE source code.
+- brew reinstall isce: reinstall ISCE software, for example to fix a damaged installation.
+- brew remove isce: uninstall ISCE package.
 
 ## Common issues
 
@@ -71,7 +92,7 @@ Now your ISCE installation is ready to use.
 The best way to debug for issues during ISCE source code compilation, it is looking at the Homebrew logs. Please see at ~/Library/Logs/Homebrew/isce/ for log files. For example:
 
 - config.log: scons configuration log, useful to see why scons can't detect a particular dependence.
-- 01.python3: cython installation log
+- 01.python3: cython installation log.
 - 02.scons: complete scons output log during ISCE compilation, useful to find compilation issues. For example, during an ISCE compilation ("brew install --build-from-source isce"), it is a good idea to see the scons log on a separated Terminal window with:
 
         tail -f ~/Library/Logs/Homebrew/isce/02.scons
