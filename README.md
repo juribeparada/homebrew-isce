@@ -4,11 +4,11 @@ This Homebrew formula provides binary (bottle) installation of the [Interferomet
 
 ISCE >= v2.3.1 is open source, but some applications will not work without obtaining [licensed components](https://github.com/isce-framework/isce2#license-required-for-dependencies-to-enable-some-workflows-in-isce).
 
-Please, DO NOT mix with other package managers (MacPorts, Fink, Conda). If you have a Miniconda or Anaconda installation, make sure they are isolated and not using the PATH environment variable.
+Please, DO NOT mix with other package managers (MacPorts, Fink, Conda). If you have a Miniconda or Anaconda installation, make sure they are isolated and not using the PATH environment variable during this ISCE formula installation or running the ISCE package provided by this formula.
 
 ## ISCE installation using Homebrew
 
-Follow these steps for ISCE installation. If you have problems about the ISCE setup using this formula, please report an issue.
+Follow these steps for ISCE installation. If you have problems running the ISCE setup using this formula, please report an issue.
 
 ### Install Homebrew
 
@@ -38,7 +38,7 @@ Please add this tap to access to the ISCE installation formula:
 
 ### Install ISCE
 
-Run the following command to install ISCE. Please be patient to wait the installation of a big number of dependences. Re-run this command just in case if dependences installation stops early:
+Run the following command to install ISCE. If this is the first time that you are installing ISCE using Homebrew, please be patient to wait the installation of a big number of dependences. Re-run this command just in case if dependences installation stops early:
 
     brew install isce
 
@@ -58,7 +58,7 @@ Now your ISCE installation is ready to use.
 
 ### Stack processors
 
-If you want to use the stack processors included in ISCE, you need to add to your .bash_profile the following lines, depending on what kind of stack processor you need:
+If you want to use the stack processors included in ISCE, you need to add to your ~/.bash_profile the following lines, depending on what kind of stack processor you need:
 
 - Sentinel-1 TOPS:
 
@@ -68,7 +68,7 @@ If you want to use the stack processors included in ISCE, you need to add to you
 
         export PATH=$PATH:/usr/local/share/isce/stripmapStack
 
-If you are planning to use StaMPS, you also may add to your .bash_profile:
+If you are planning to use StaMPS, you also may add to your ~/.bash_profile:
 
     export PATH=$PATH:/usr/local/share/isce/prepStackToStaMPS
 
@@ -82,10 +82,10 @@ If you are planning to use StaMPS, you also may add to your .bash_profile:
 
 ## Common issues
 
-- ISCE is not installed: probably dependences installation stops early. Re-run "brew install isce" to continue dependences installation.
+- ISCE is not installed: probably dependences installation stops early. Re-run "brew install isce" to continue installation.
 - ISCE installation starts to build from the sources, with a "SHA256 mismatch" error: probably the binary bottles were updated recently. Please stops the building with Ctrl-C, and then execute "brew fetch --force isce". Then try to install ISCE again with "brew install isce".
 - Runtime errors executing ISCE: try to reinstall critical packages for ISCE, for example "brew reinstall numpy scipy gcc", etc. Also, check the Homebrew environment health with "brew doctor" and check for unlinked formulas. Report an issue if you still have problems.
-- When building from source code, scons hangs for long time: normally, scons build takes ~6 minutes, if that time is considerably larger, probably scons failed. Please be sure your Homebrew environment health is OK and you have the SDK headers installed (Mojave). If you are building from sources, it is a good idea to see the Homebrew log.
+- When building from source code, scons hangs for long time: normally, scons build takes ~7 minutes, if that time is considerably larger, probably scons failed. Please be sure your Homebrew environment health is OK and you have the SDK headers installed (Mojave). If you are building from sources, it is a good idea to see the Homebrew log.
 
 ## Debug during compilation
 
