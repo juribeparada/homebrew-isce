@@ -86,6 +86,8 @@ class Isce < Formula
     # Copy prepStackToStaMPS files into share folder
     (share/"prepStackToStaMPS").install Dir[buildpath/"contrib/timeseries/prepStackToStaMPS/bin/*"]
     (share/"prepStackToStaMPS").install buildpath/"contrib/timeseries/prepStackToStaMPS/README"
+    # Copy examples folder into share folder
+    share.install Dir[buildpath/"examples"]
   end
 
   def post_install
