@@ -37,7 +37,7 @@ class Isce < Formula
   def install
     ENV["SCONS_CONFIG_DIR"] = buildpath
 
-    gcc_lib = HOMEBREW_PREFIX/"opt/gcc/lib/gcc/8/"
+    gcc_lib = HOMEBREW_PREFIX/"opt/gcc/lib/gcc/9/"
     py_version = Language::Python.major_minor_version "python3"
     py_include = HOMEBREW_PREFIX/"Frameworks/Python.framework/Versions/#{py_version}/include/python#{py_version}m/"
     x11_inc = OS::Mac::XQuartz.include
