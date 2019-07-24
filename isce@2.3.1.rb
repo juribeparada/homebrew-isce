@@ -1,4 +1,4 @@
-class Isce < Formula
+class IsceAT231 < Formula
   desc "Interferometric synthetic aperture radar Scientific Computing Environment (ISCE)"
   homepage "https://winsar.unavco.org/software/isce"
   url "https://github.com/isce-framework/isce2/archive/v2.3.1.tar.gz"
