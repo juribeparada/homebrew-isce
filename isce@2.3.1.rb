@@ -9,7 +9,6 @@ class IsceAT231 < Formula
     cellar :any_skip_relocation
     root_url "https://github.com/juribeparada/homebrew-isce/releases/download/bottles-isce"
     sha256 "572bfbbea4040f818256c35cada9069317790aa63eb992782efcf85a92233038" => :mojave
-    sha256 "f0d98ecc0281620cd88978328da40f3d7c7e12ee12a4caed465b83bb5333edca" => :high_sierra
   end
 
   depends_on "scons" => :build
